@@ -33,7 +33,8 @@ app.listen(app.get('port'), () => {
 app.post('/chat', async(req, res)=> {
 	try {
 		const { message } = req.body;
-		let url_bot = `https://api.wit.ai/message?v=20220912&q=${ message }`;
+		const messageCapitalized = capitalizeFirstLetter(message);
+		let url_bot = `https://api.wit.ai/message?v=20220912&q=${ messageCapitalized }`;
 
 		let bot_response = await fetch(encodeURI(url_bot), {
 			headers: { Authorization: `Bearer ${accessToken}` }
@@ -59,6 +60,15 @@ app.post('/chat', async(req, res)=> {
 	}
 });
 
+function capitalizeFirstLetter(characters) {
+	let words = characters.split(' ')
+	
+	for (let word in words) {
+		words[word] = (words[word].charAt(0).toUpperCase() + words[word].slice(1));
+	}
+	
+	return words.join(' ');
+}
 // function make_post(data_to_send){
 // 	app.post('/chat', async(req = data_to_send, res)=> {
 // 		try {
