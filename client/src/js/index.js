@@ -27,10 +27,10 @@ export default {
 		}
 
 		async function postResponse(message){
-			const postData = { message };
+			const payload = { message };
 
 			const { response } = await axios
-				.post('http://localhost:3000/chat', postData)
+				.post('http://localhost:3000/chat', payload)
 				.then((result) => result.data)
 				.catch(error => console.log(error));
 

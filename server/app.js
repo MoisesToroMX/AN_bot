@@ -1,13 +1,13 @@
-const { cors, 
-				express,
-				fetch,
-				Server,
-				accessToken,
-				port,
-				app,
-				server,
-				notFound
-			} = require('./variables');
+const { 
+	cors, 
+	express,
+	fetch,
+	accessToken,
+	port,
+	app,
+	server,
+	notFound
+} = require('./variables');
 
 //const io = new Server(server);
 app.use(cors());
@@ -24,23 +24,23 @@ app.post('/chat', async(req, res)=> {
 		});
 		let bot_data = await bot_response.json();
 
-		if (bot_data.entities && bot_data.entities["find_something:find_something"]) {
-			let url_wikipedia = `https://en.wikipedia.org/api/rest_v1/page/summary/${bot_data.entities["find_something:find_something"][0].value}`;
+		if (bot_data.entities && bot_data.entities['find_something:find_something']) {
+			let url_wikipedia = `https://en.wikipedia.org/api/rest_v1/page/summary/${bot_data.entities['find_something:find_something'][0].value}`;
 
 			let wikipedia_response = await fetch(encodeURI(url_wikipedia));
 			let wikipedia_data = await wikipedia_response.json();
 
 			if (wikipedia_data.title == 'Not found.') {
-				return res.json({ response: (response = notFound) });
+				return res.json({ response: (response = notFound) }).status(404);
 			} else {
-				return res.json({ response: (response = wikipedia_data.extract) });
-			};
+				return res.json({ response: (response = wikipedia_data.extract) }).status(200);
+			}
 		}else {
 			return res.json({ response: bot_data});
-		};
+		}
 	} catch (error) {	
 		return console.log(error);
-	};
+	}
 });
 
 server.listen(port, () => {

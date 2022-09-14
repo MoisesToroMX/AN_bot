@@ -1,10 +1,20 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.2",
-    "express": "^4.18.1",
-    "node-fetch": "^2.6.6",
-    "node-wit": "^6.4.0",
-    "socket.io": "^4.5.2"
-  }
+	"scripts": {
+		"test": "mocha tests",
+		"lint": "eslint ."
+	},
+	"dependencies": {
+		"axios": "^0.27.2",
+		"chai": "^4.3.6",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.2",
+		"express": "^4.18.1",
+		"node-fetch": "^2.6.6",
+		"socket.io": "^4.5.2",
+		"supertest": "^6.2.4"
+	},
+	"devDependencies": {
+		"eslint": "^8.23.1",
+		"mocha": "^10.0.0"
+	}
 }
