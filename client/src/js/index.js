@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {ref} from 'vue';
+// const socket = io();
 
 export default {
   name: 'App',
@@ -28,7 +29,7 @@ export default {
 
 		async function postResponse(message){
 			const payload = { message };
-
+			//socket.emit('chat_message', payload);
 			const { response } = await axios
 				.post('http://localhost:3000/chat', payload)
 				.then((result) => result.data)
@@ -36,7 +37,9 @@ export default {
 
 			createMessage(response);
 		}
-
+		// socket.on('chat_message', (data) => {
+		// 	createMessage(data);
+		// });
 		return { messages, messageContent, sendMessage};
 	}
 };
