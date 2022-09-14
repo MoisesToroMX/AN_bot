@@ -21,7 +21,7 @@ Tomando en cuenta que nos encontramos en la carpeta ".../artificial_nerds_bot", 
 Vamos a ejecutar en la terminal el siguiente comando:
 
 ```bash
-cd client
+$ cd client
 ```
 Una vez estemos en la ruta ".../artificial_nerds_bot/client", vamos a ejecutar en la terminal el siguiente comando:
 
@@ -57,7 +57,7 @@ Tomando en cuenta que nos encontramos en la carpeta ".../artificial_nerds_bot", 
 Vamos a ejecutar en la terminal el siguiente comando:
 
 ```bash
-cd server
+$ cd server
 ```
 Una vez estemos en la ruta ".../artificial_nerds_bot/server", vamos a ejecutar en la terminal el siguiente comando:
 
